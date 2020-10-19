@@ -38,14 +38,19 @@ jobs:
               --build-arg GLIBC_VERSION=${{ env.GLIBC_VERSION }} \
               --build-arg AVDC_VERSION=${{ env.AVDC_VERSION }} \
               --build-arg BUILD_DATE=$(date +"%Y-%m-%d") \
-              --build-arg BUILD_DATE=${{ env.VERSION }} \
+              --build-arg VERSION=${{ env.VERSION }} \
               . 
 
         - name: Run the Test
           if: success()
           run: |
-            docker run -v ${PWD}/Test:/jav/data xiaoyu/avdc:${{ env.VERSION }}
-            cd Test/JAV_output/御坂りあ/MIFD-046
+            docker run \
+              -e PUID=1024 \
+              -e PGID=1024 \
+              -e SUCCESS_OUTPUT=JAV_output \
+              -v ${PWD}/Test:/app/data \
+              xiaoyu/avdc:${{ env.VERSION }}
+            cd Test/output/御坂りあ/MIFD-046
             ls -l
             cat MIFD-046.mp4
 
@@ -73,7 +78,9 @@ jobs:
             platforms: linux/amd64
             push: true
             build-args: |
+              GLIBC_VERSION=${{ env.GLIBC_VERSION }}
               AVDC_VERSION=${{ env.AVDC_VERSION }}
+              BUILD_DATE=$(date +"%Y-%m-%d")
+              VERSION=${{ env.VERSION }}
             tags: |
-              vergilgao/avdc:latest
-              vergilgao/avdc:${{ env.AVDC_VERSION }}
+              vergilgao/avdc:${{ env.VERSION }}

@@ -1,3 +1,7 @@
-#!/usr/bin/execlineb -P
+#!/usr/bin/with-contenv bash
 
-echo "Hello, I'm fine."
+# set umask
+UMASK_SET=${UMASK_SET:-022}
+umask "$UMASK_SET"
+
+exec s6-setuidgid abc /app/AV_Data_Capture
