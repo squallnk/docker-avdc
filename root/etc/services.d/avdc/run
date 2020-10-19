@@ -1,1 +1,3 @@
-#!/usr/bin/with-contenv bash
+#!/usr/bin/execlineb -P
+
+echo "Hello, I'm fine."
