@@ -1,1 +1,3 @@
 #!/usr/bin/with-contenv bash
+
+cat /app/cofnig.ini
