@@ -1,6 +1,6 @@
 #!/usr/bin/with-contenv bash
 
-cat config.ini
+cat /app/config.ini
 
 mkdir -p \
     /app/data 
