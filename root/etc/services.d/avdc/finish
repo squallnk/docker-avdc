@@ -1,3 +1,5 @@
 #!/usr/bin/execlineb -S0
 
 echo "Hello, I'm done."
+
+s6-svscanctl -t /var/run/s6/services
