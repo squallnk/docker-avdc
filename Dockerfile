@@ -16,7 +16,7 @@ RUN \
     apk add glibc-bin-${GLIBC_VERSION}.apk && \
     echo "**** install avdc ****" && \
     wget -O avdc.zip https://github.com/yoshiko2/AV_Data_Capture/releases/download/${AVDC_VERSION}/AV_Data_Capture-CLI-${AVDC_VERSION}-linux-amd64.zip && \
-    unzip -c avdc.zip -d /jav &&\
+    unzip avdc.zip -d /jav &&\
     echo "**** cleanup ****" && \
     rm /etc/apk/keys/sgerrand.rsa.pub && \
     rm -rf /var/cache/apk/* /tmp/* /var/tmp/* && \
