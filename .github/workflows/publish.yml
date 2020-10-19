@@ -50,7 +50,7 @@ jobs:
               -e SUCCESS_OUTPUT=JAV_output \
               -v ${PWD}/Test:/app/data \
               xiaoyu/avdc:${{ env.VERSION }}
-            cd Test/output/御坂りあ/MIFD-046
+            cd Test/JAV_output/御坂りあ/MIFD-046
             ls -l
             cat MIFD-046.mp4
 

@@ -28,3 +28,5 @@ ARG VERSION
 LABEL build_version="catfight360.com version:- ${VERSION} build-date:- ${BUILD_DATE}"
 
 COPY root/ /
+
+VOLUME ["/app/data"]
