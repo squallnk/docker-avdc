@@ -51,9 +51,6 @@ jobs:
               -e LOCATION_RULE="actor+'-'+number" \
               -v ${PWD}/Test:/app/data \
               xiaoyu/avdc:${{ env.VERSION }}
-            cd Test/JAV_output/御坂りあ-MIFD-046
-            ls -l
-            cat MIFD-046.mp4
 
         - name: Set up QEMU
           uses: docker/setup-qemu-action@v1
